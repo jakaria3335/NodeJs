@@ -80,5 +80,59 @@ const path = require("path")
 //     }
 // })
 
-// ------------------------------CURD End-------------------------
+// // ------------------------------CURD End-------------------------
 
+// // ------------------Sync & Async Sample--------------------
+
+// console.log("1st File");
+
+// setTimeout(()=>{
+//     console.log("this is 2nd file")
+// },3000)
+
+// console.log("This is 3rd File")
+
+// // --------------Another Drow Back Sample-------------------
+// let a = 10
+// let b = 0
+
+// setTimeout(()=>{
+//     b=20
+// }, 3000)
+
+///////Output should be 30 but output is 10//////////
+// console.log(a+b)
+
+
+
+// // Promises fix drow back
+// let a = 10
+// let b = 0
+
+// let waitingData = new Promise((resolve, reject)=>{
+//     setTimeout(()=>{
+//         resolve(30)
+//     }, 3000)
+// })
+// waitingData.then((data)=>{
+//     b= data
+//     console.log(a+b)
+// })
+
+
+////////////////////////// Call Stack //////////////////
+/////////// full app in Main() fuction./////////
+///Call stake register all fuctions and 1st is main() then all function from app.////////// here is the example is console log calls from call stack not going to node apis or event logs, so console log print 1st, other function like setTimeOut which is a C++ function. setTimeout works like call stack then node apis then event log. so its little delays for console log. 
+
+// console.log("Starting up")
+
+// setTimeout(()=>{
+// console.log("2 secound log")
+// },2000)
+
+// setTimeout(()=>{
+// console.log("0 secound log")
+// },0)
+
+// console.log("Finishing up")
+////////////////////////// Call Stack END //////////////////
