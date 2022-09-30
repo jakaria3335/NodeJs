@@ -136,3 +136,109 @@ const path = require("path")
 
 // console.log("Finishing up")
 ////////////////////////// Call Stack END //////////////////
+
+
+
+
+
+////////////////////// Starting Express Js ///////////////////
+
+//////////this is basic express server////////
+
+// const express = require('express')
+// const app = express()
+
+// app.get('',(req, res)=>{
+//     res.send("Welcome to my new express home page")
+// })
+// app.get('/about',(req, res)=>{
+//     res.send("Hello this is express About page")
+// })
+// app.get('/help',(req, res)=>{
+//     res.send("Hello this is express help page")
+// })
+
+// app.listen(5000)
+
+//////////server end////////
+
+
+//////////Req and res////////
+
+// response = server 
+// request = clint
+
+// that means server always gives response. Clint always request.
+
+// If we want to bring any data from clint site or form then we use req perametar. 
+
+// if we want to show someting to out clint then we use response. 
+
+
+// for example::
+//sent data via browser like: http://localhost:5000/?name=Jakaria
+// const express = require('express')
+// const app = express()
+// app.get('',(req, res)=>{
+//     console.log("Data sent by Browser>>>>", req.query.name)
+//     res.send("Welcome Mr./Mrs. " + req.query.name)
+// })
+// app.listen(5000)
+
+//////////Req and res end ////////
+
+
+//////////Render Html tag Start ////////
+// const express = require('express')
+// const app = express()
+//////////how to show html tags//////
+// app.get('',(req, res)=>{
+//     res.send("<h1>Welcome to my new express home page</h1>")
+// })
+
+////////////how to show input tag////////
+// app.get('/about',(req, res)=>{
+//     res.send(`
+//     <input type="text" placeholder="User name"/>
+//     <button>Click me</button>
+//     `)
+// })
+/////how to show json data///
+// app.get('/help',(req, res)=>{
+//     res.send([
+//         {
+//         "name":"Jakaria",
+//         "email":"jakariatest.com",
+//         },
+//         {
+//         "name":"Nayeem",
+//         "email":"nayeem.com",
+//         },
+//         {
+//         "name":"toli",
+//         "email":"toli.com",
+//         },
+// ])
+// })
+// app.listen(5000)
+
+//////////Render Html tag end ////////
+
+
+
+
+
+//////////Make folder for Html and access it start ////////
+const express = require('express')
+
+const app = express()
+const publicPath = path.join(__dirname,"public")
+console.log(publicPath)
+
+app.use(express.static(publicPath))
+
+
+
+
+app.listen(5000)
+//////////Make folder for Html and access it End ////////
