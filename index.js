@@ -229,16 +229,41 @@ const path = require("path")
 
 
 //////////Make folder for Html and access it start ////////
-const express = require('express')
+// const express = require('express')
 
-const app = express()
-const publicPath = path.join(__dirname,"public")
-console.log(publicPath)
+// const app = express()
+// const publicPath = path.join(__dirname,"public")
+// console.log(publicPath)
 
-app.use(express.static(publicPath))
+// app.use(express.static(publicPath))
 
+//  app.listen(5000)
 
+//in this server you can access public folder. if you search http://localhost:5000/about.html then you can access about file. which is in the public folder. Note: never forget to add .html extension. otherwise won't work. 
 
+//-----------Now we will learn how to access file without using exention---------////
+// const express = require('express')
 
-app.listen(5000)
+// const app = express()
+// const publicPath = path.join(__dirname,"public")
+// console.log(publicPath)
+
+// app.get("",(_, res)=>{
+//     res.sendFile(`${publicPath}/index.html`)
+// })
+// app.get("/about",(_, res)=>{
+//     res.sendFile(`${publicPath}/about.html`)
+// })
+// app.get("/help",(_, res)=>{
+//     res.sendFile(`${publicPath}/help.html`)
+// })
+// app.get("/contact",(_, res)=>{
+//     res.sendFile(`${publicPath}/contact.html`)
+// })
+// app.get("*",(_, res)=>{
+//     res.sendFile(`${publicPath}/notFound.html`)
+// })
+
+//  app.listen(5000)
+
 //////////Make folder for Html and access it End ////////
