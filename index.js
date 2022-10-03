@@ -241,12 +241,19 @@ const path = require("path")
 
 //in this server you can access public folder. if you search http://localhost:5000/about.html then you can access about file. which is in the public folder. Note: never forget to add .html extension. otherwise won't work. 
 
+
+////////Template Engine /////////////////
+///we use template engine to create a dynamic page////////
+/////ejs template package///
+
+
 //-----------Now we will learn how to access file without using exention---------////
 // const express = require('express')
 
 // const app = express()
 // const publicPath = path.join(__dirname,"public")
 // console.log(publicPath)
+// app.set("view engine","ejs");
 
 // app.get("",(_, res)=>{
 //     res.sendFile(`${publicPath}/index.html`)
@@ -260,10 +267,164 @@ const path = require("path")
 // app.get("/contact",(_, res)=>{
 //     res.sendFile(`${publicPath}/contact.html`)
 // })
+// app.get("/login",(_, res)=>{
+//     res.render("login.ejs")
+// })
+// app.get("/profile",(_, res)=>{
+//     const user = [
+//         {
+//         name:"jakaria",
+//         email:"jakaria@gmail.com",
+//         city:"Narsingdi",
+//         skills: ["php","js","c++"]
+//     },
+//         {
+//         name:"jakaria2",
+//         email:"jakaria2@gmail.com",
+//         city:"Narsingdi2",
+//     },
+//         {
+//         name:"jakaria3",
+//         email:"jakaria3@gmail.com",
+//         city:"Narsingdi3",
+//     },
+//         {
+//         name:"jakaria4",
+//         email:"jakaria4@gmail.com",
+//         city:"Narsingdi4",
+//     },
+//         {
+//         name:"jakaria5",
+//         email:"jakaria5@gmail.com",
+//         city:"Narsingdi5",
+//     },
+// ]
+//     res.render("profile",{user});
+// })
 // app.get("*",(_, res)=>{
 //     res.sendFile(`${publicPath}/notFound.html`)
 // })
 
 //  app.listen(5000)
 
+
 //////////Make folder for Html and access it End ////////
+
+
+////////////////Middleware understanding///////////////////
+
+// middkeware is a modifier which is modify apis req & respons. 
+//this is application labal middleware
+
+// const express = require('express')
+// const app = express()
+
+// const reqFilter = (req, res, next)=>{
+//     const age = req.query.age;
+
+//     if (!age) {
+//         res.send("Insert age correctly!!!")
+//     } else if(age<18) {
+
+//         res.send("You can not access this page!!")
+//     }
+//     next()
+// }
+
+// app.use(reqFilter)
+
+
+// app.get("/",(req, res)=>{
+//     res.send("Welcome to home page")
+// })
+// app.get("/users",(req, res)=>{
+//     res.send("Welcome to users page")
+// })
+
+
+
+//  app.listen(5000)
+
+///this is route labal middleware
+
+// const express = require('express')
+// const app = express()
+
+// const reqFilter = (req, res, next)=>{
+//     const age = req.query.age;
+
+//     if (!age) {
+//         res.send("Insert age correctly!!!")
+//     } else if(age<18) {
+        
+//         res.send("You are under aged!!")
+//     }
+//     next()
+// }
+
+
+// app.get("/",(req, res)=>{
+//     res.send("Welcome to home page")
+// });
+// ///restricted route
+// app.get("/users",reqFilter ,(req, res)=>{
+//     res.send("Welcome to users page")
+// });
+// ///restricted route end
+// app.get("/about",(req, res)=>{
+//     res.send("Welcome to users page")
+// });
+
+
+
+//  app.listen(5000)
+
+
+
+///Middleware from separate file
+
+// const express = require('express')
+// const reqFilter = require("./middleware")
+// const app = express()
+
+// app.get("/",(req, res)=>{
+//     res.send("Welcome to home page")
+// });
+// ///restricted route
+// app.get("/users",reqFilter ,(req, res)=>{
+//     res.send("Welcome to users page")
+// });
+// ///restricted route end
+// app.get("/about",(req, res)=>{
+//     res.send("Welcome to users page")
+// });
+
+// app.listen(5000)
+
+
+///Middleware on a group of route
+
+const express = require('express')
+const reqFilter = require("./middleware")
+const app = express()
+const route = express.Router()
+
+route.use(reqFilter)
+
+app.get("/",(req, res)=>{
+    res.send("Welcome to home page")
+});
+app.get("/users",(req, res)=>{
+    res.send("Welcome to users page")
+});
+
+route.get("/about",(req, res)=>{
+    res.send("Welcome to users page")
+});
+route.get("/contact",(req, res)=>{
+    res.send("Welcome to users page")
+});
+
+app.use("/", route)
+app.listen(5000)
+
