@@ -1,8 +1,8 @@
-const http = require("http");
-const colors = require("colors");
-const data = require("./data");
-const fs = require("fs")
-const path = require("path")
+// const http = require("http");
+// const colors = require("colors");
+// const data = require("./data");
+// const fs = require("fs");
+// const path = require("path");
 
 //http server
 // http.createServer((req, res) => {
@@ -24,8 +24,7 @@ const path = require("path")
 //     fs.writeFileSync(dirPath+"/Hello"+ i + ".txt","Simple text files created by loop "+i+" is file Number")
 // }
 
-
-// Read files: 
+// Read files:
 // fs.readdir(dirPath,(err, files)=>{
 //     // console.log(files)
 //     files.forEach((item)=>{
@@ -59,7 +58,7 @@ const path = require("path")
 //     }
 // })
 
-// // Rename Files: 
+// // Rename Files:
 // const curdPath = path.join(__dirname,"curd")
 // const filePath = `${curdPath}/sample.text`
 
@@ -69,7 +68,7 @@ const path = require("path")
 //     }
 // } )
 
-// // Delete files: 
+// // Delete files:
 
 // const curdPath = path.join(__dirname,"curd")
 // const filePath = `${curdPath}/sample.text`
@@ -103,8 +102,6 @@ const path = require("path")
 ///////Output should be 30 but output is 10//////////
 // console.log(a+b)
 
-
-
 // // Promises fix drow back
 // let a = 10
 // let b = 0
@@ -119,10 +116,9 @@ const path = require("path")
 //     console.log(a+b)
 // })
 
-
 ////////////////////////// Call Stack //////////////////
 /////////// full app in Main() fuction./////////
-///Call stake register all fuctions and 1st is main() then all function from app.////////// here is the example is console log calls from call stack not going to node apis or event logs, so console log print 1st, other function like setTimeOut which is a C++ function. setTimeout works like call stack then node apis then event log. so its little delays for console log. 
+///Call stake register all fuctions and 1st is main() then all function from app.////////// here is the example is console log calls from call stack not going to node apis or event logs, so console log print 1st, other function like setTimeOut which is a C++ function. setTimeout works like call stack then node apis then event log. so its little delays for console log.
 
 // console.log("Starting up")
 
@@ -136,10 +132,6 @@ const path = require("path")
 
 // console.log("Finishing up")
 ////////////////////////// Call Stack END //////////////////
-
-
-
-
 
 ////////////////////// Starting Express Js ///////////////////
 
@@ -162,18 +154,16 @@ const path = require("path")
 
 //////////server end////////
 
-
 //////////Req and res////////
 
-// response = server 
+// response = server
 // request = clint
 
 // that means server always gives response. Clint always request.
 
-// If we want to bring any data from clint site or form then we use req perametar. 
+// If we want to bring any data from clint site or form then we use req perametar.
 
-// if we want to show someting to out clint then we use response. 
-
+// if we want to show someting to out clint then we use response.
 
 // for example::
 //sent data via browser like: http://localhost:5000/?name=Jakaria
@@ -186,7 +176,6 @@ const path = require("path")
 // app.listen(5000)
 
 //////////Req and res end ////////
-
 
 //////////Render Html tag Start ////////
 // const express = require('express')
@@ -224,10 +213,6 @@ const path = require("path")
 
 //////////Render Html tag end ////////
 
-
-
-
-
 //////////Make folder for Html and access it start ////////
 // const express = require('express')
 
@@ -239,13 +224,11 @@ const path = require("path")
 
 //  app.listen(5000)
 
-//in this server you can access public folder. if you search http://localhost:5000/about.html then you can access about file. which is in the public folder. Note: never forget to add .html extension. otherwise won't work. 
-
+//in this server you can access public folder. if you search http://localhost:5000/about.html then you can access about file. which is in the public folder. Note: never forget to add .html extension. otherwise won't work.
 
 ////////Template Engine /////////////////
 ///we use template engine to create a dynamic page////////
 /////ejs template package///
-
 
 //-----------Now we will learn how to access file without using exention---------////
 // const express = require('express')
@@ -307,13 +290,11 @@ const path = require("path")
 
 //  app.listen(5000)
 
-
 //////////Make folder for Html and access it End ////////
-
 
 ////////////////Middleware understanding///////////////////
 
-// middkeware is a modifier which is modify apis req & respons. 
+// middkeware is a modifier which is modify apis req & respons.
 //this is application labal middleware
 
 // const express = require('express')
@@ -333,15 +314,12 @@ const path = require("path")
 
 // app.use(reqFilter)
 
-
 // app.get("/",(req, res)=>{
 //     res.send("Welcome to home page")
 // })
 // app.get("/users",(req, res)=>{
 //     res.send("Welcome to users page")
 // })
-
-
 
 //  app.listen(5000)
 
@@ -356,12 +334,11 @@ const path = require("path")
 //     if (!age) {
 //         res.send("Insert age correctly!!!")
 //     } else if(age<18) {
-        
+
 //         res.send("You are under aged!!")
 //     }
 //     next()
 // }
-
 
 // app.get("/",(req, res)=>{
 //     res.send("Welcome to home page")
@@ -375,11 +352,7 @@ const path = require("path")
 //     res.send("Welcome to users page")
 // });
 
-
-
 //  app.listen(5000)
-
-
 
 ///Middleware from separate file
 
@@ -401,30 +374,87 @@ const path = require("path")
 
 // app.listen(5000)
 
-
 ///Middleware on a group of route
 
-const express = require('express')
-const reqFilter = require("./middleware")
-const app = express()
-const route = express.Router()
+// const express = require('express')
+// const reqFilter = require("./middleware")
+// const app = express()
+// const route = express.Router()
 
-route.use(reqFilter)
+// route.use(reqFilter)
 
-app.get("/",(req, res)=>{
-    res.send("Welcome to home page")
-});
-app.get("/users",(req, res)=>{
-    res.send("Welcome to users page")
-});
+// app.get("/",(req, res)=>{
+//     res.send("Welcome to home page")
+// });
+// app.get("/users",(req, res)=>{
+//     res.send("Welcome to users page")
+// });
 
-route.get("/about",(req, res)=>{
-    res.send("Welcome to users page")
-});
-route.get("/contact",(req, res)=>{
-    res.send("Welcome to users page")
-});
+// route.get("/about",(req, res)=>{
+//     res.send("Welcome to users page")
+// });
+// route.get("/contact",(req, res)=>{
+//     res.send("Welcome to users page")
+// });
 
-app.use("/", route)
-app.listen(5000)
+// app.use("/", route)
+// app.listen(5000)
 
+//////////////////// Nodejs, Express & mongodb ////////////////////
+
+////////////// Mongodb Connection in same File Start  /////////////////
+
+// const express = require("express");
+// const reqFilter = require("./middleware");
+// const { MongoClient } = require("mongodb");
+// const url = "mongodb://localhost:27017";
+// const database = "e-comm";
+// const client = new MongoClient(url);
+// const app = express();
+// const route = express.Router();
+
+// route.use(reqFilter);
+
+// async function dbConnect() {
+//   let result = await client.connect();
+//   let db = result.db(database);
+//   return db.collection("products");
+// }
+
+//Handle Promises
+
+// dbConnect().then((res) => {
+//   res
+//     .find()
+//     .toArray()
+//     .then((data) => {
+//       console.log(data);
+//     });
+// });
+// // console.log(dbConnect())
+//What is promise? When we are execude havy oparation or where oparation eill take lot of time then we will wait for this result.
+
+//Handle Promises diffrent and new way
+// const main= async ()=>{
+//     let data= await dbConnect()
+//     data = await data.find().toArray()
+//     console.log(data)
+// }
+// main()
+
+////////////// Mongodb Connection in same File end  /////////////////
+
+////////////// Mongodb Connection in separate File Start  /////////////////
+
+
+const dbConnect= require('./mongodb')
+
+const main= async ()=>{
+    let data= await dbConnect()
+    data = await data.find().toArray()
+    console.log(data)
+}
+main()
+
+
+////////////// Mongodb Connection in separate File End  /////////////////
